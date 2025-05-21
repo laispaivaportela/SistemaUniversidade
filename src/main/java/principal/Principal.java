@@ -10,7 +10,6 @@ package principal;
  */
 import controller.ControleAluno;
 import controller.SistemaUniversidade;
-import view.FrmSistemaUniversidade;
 
 //sistema para simular um sistema de uma universidade para controle de alunos
 

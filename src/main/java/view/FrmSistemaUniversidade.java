@@ -8,11 +8,6 @@ package view;
  *
  * @author laispaivaportela
  */
-import principal.Principal;
-import model.Aluno;
-import controller.ControleAluno;
-import controller.SistemaUniversidade;
-import static principal.Principal.CONTROLE_ALUNO;
 import static principal.Principal.SISTEMA_UNIVERSIDADE;
 
 public class FrmSistemaUniversidade extends javax.swing.JFrame {
@@ -28,9 +23,7 @@ public class FrmSistemaUniversidade extends javax.swing.JFrame {
         initComponents();
    
     }
-   // public FrmSistemaUniversidade(int escolha){
-        //this.escolha = escolha;
-   // } 
+   
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -68,18 +61,21 @@ public class FrmSistemaUniversidade extends javax.swing.JFrame {
         jMenuItem1.setText("jMenuItem1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Universidade Pop Rock");
 
-        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\laisp_omzy4s1\\OneDrive\\Documentos\\NetBeansProjects\\SistemaUniversidade\\menu.png")); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\laisp_omzy4s1\\OneDrive\\Documentos\\NetBeansProjects\\SistemaUniversidade\\resources\\menu.png")); // NOI18N
         jLabel2.setMaximumSize(new java.awt.Dimension(1920, 1080));
         jLabel2.setMinimumSize(new java.awt.Dimension(300, 300));
 
         mnuArquivo.setText("Arquivo");
+        mnuArquivo.setFont(new java.awt.Font("Inter 18pt Medium", 0, 14)); // NOI18N
         mnuArquivo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 mnuArquivoActionPerformed(evt);
             }
         });
 
+        itmCadastrarAluno.setFont(new java.awt.Font("Inter 18pt Medium", 0, 12)); // NOI18N
         itmCadastrarAluno.setText("Cadastrar Aluno");
         itmCadastrarAluno.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -88,6 +84,7 @@ public class FrmSistemaUniversidade extends javax.swing.JFrame {
         });
         mnuArquivo.add(itmCadastrarAluno);
 
+        itmFichaAluno.setFont(new java.awt.Font("Inter 18pt Medium", 0, 12)); // NOI18N
         itmFichaAluno.setText("Ficha Aluno");
         itmFichaAluno.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -96,6 +93,7 @@ public class FrmSistemaUniversidade extends javax.swing.JFrame {
         });
         mnuArquivo.add(itmFichaAluno);
 
+        itmGerenciarAluno.setFont(new java.awt.Font("Inter 18pt Medium", 0, 12)); // NOI18N
         itmGerenciarAluno.setText("Gerenciar Aluno");
         itmGerenciarAluno.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -104,6 +102,7 @@ public class FrmSistemaUniversidade extends javax.swing.JFrame {
         });
         mnuArquivo.add(itmGerenciarAluno);
 
+        itmSair.setFont(new java.awt.Font("Inter 18pt Medium", 1, 12)); // NOI18N
         itmSair.setText("Sair");
         itmSair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -115,7 +114,9 @@ public class FrmSistemaUniversidade extends javax.swing.JFrame {
         jMenuBar3.add(mnuArquivo);
 
         mnuRelatorios.setText("Relatorios");
+        mnuRelatorios.setFont(new java.awt.Font("Inter 18pt Medium", 0, 14)); // NOI18N
 
+        itmAlunos.setFont(new java.awt.Font("Inter 18pt Medium", 0, 12)); // NOI18N
         itmAlunos.setText("Alunos");
         itmAlunos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -127,6 +128,8 @@ public class FrmSistemaUniversidade extends javax.swing.JFrame {
         jMenuBar3.add(mnuRelatorios);
 
         mnuSobre.setText("Sobre");
+        mnuSobre.setToolTipText("");
+        mnuSobre.setFont(new java.awt.Font("Inter 18pt Light", 0, 14)); // NOI18N
         jMenuBar3.add(mnuSobre);
 
         setJMenuBar(jMenuBar3);
@@ -135,11 +138,13 @@ public class FrmSistemaUniversidade extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -169,6 +174,7 @@ public class FrmSistemaUniversidade extends javax.swing.JFrame {
 
     private void itmAlunosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itmAlunosActionPerformed
         //posteriormente imprimirá relatório completo dos alunos matriculados
+        SISTEMA_UNIVERSIDADE.executarAcao(4);
     }//GEN-LAST:event_itmAlunosActionPerformed
 
     

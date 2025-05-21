@@ -12,16 +12,10 @@ package controller;
 //muitos imports
 import model.Aluno;
 import dao.DAOAlunos;
-import view.FrmSistemaUniversidade;
-import view.FrmFichaAluno;
-import java.util.ArrayList;
 import java.util.List;
-import static principal.Principal.CONTROLE_ALUNO;
-import static principal.Principal.SISTEMA_UNIVERSIDADE;
 
 public class ControleAluno {
-    private DAOAlunos daoAlunos; //define o DAO
-    private FrmSistemaUniversidade frmSistema;
+    private final DAOAlunos daoAlunos; //define o DAO
     
     public ControleAluno() {
         daoAlunos = new DAOAlunos(); //atribui o DAO (instancia)

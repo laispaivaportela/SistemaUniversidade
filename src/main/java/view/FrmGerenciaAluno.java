@@ -8,13 +8,9 @@ package view;
  *
  * @author laispaivaportela
  */
-import controller.ControleAluno;
-import controller.SistemaUniversidade;
-import principal.Principal;
 import static principal.Principal.CONTROLE_ALUNO;
-import static principal.Principal.SISTEMA_UNIVERSIDADE;
 import model.Aluno;
-import model.Pessoa;
+
 
 public class FrmGerenciaAluno extends javax.swing.JFrame {
 
@@ -66,7 +62,7 @@ public class FrmGerenciaAluno extends javax.swing.JFrame {
         txtIdProcurado = new javax.swing.JTextField();
         btnPesquisar = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\laisp_omzy4s1\\OneDrive\\Documentos\\NetBeansProjects\\SistemaUniversidade\\resources\\icone.png")); // NOI18N
 

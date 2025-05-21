@@ -14,10 +14,10 @@ import model.Aluno;
  */
 //classe para simular um banco de dados através de listas e arraylists
 public class DAOAlunos {
-    private List<Aluno> alunos; //declara a lista
+    private final static List<Aluno> alunos = new ArrayList<>(); //declara a lista
     
     public DAOAlunos() {
-        alunos = new ArrayList<>(); //cria a lista e atribui 
+        //alunos = new ArrayList<>(); //cria a lista e atribui 
     }
     
     public boolean inserir(Aluno aluno) { //adiciona o objeto à lista
@@ -37,7 +37,7 @@ public class DAOAlunos {
         return null;
     }
     
-    public List<Aluno> listarTodos() { //lista todos os alunos cadastrados
+    public static List<Aluno> listarTodos() { //lista todos os alunos cadastrados
         return new ArrayList<>(alunos);
     }
     

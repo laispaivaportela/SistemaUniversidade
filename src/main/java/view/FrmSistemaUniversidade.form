@@ -35,6 +35,9 @@
         <Menu class="javax.swing.JMenu" name="mnuArquivo">
           <Properties>
             <Property name="text" type="java.lang.String" value="Arquivo"/>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Inter 18pt Medium" size="14" style="0"/>
+            </Property>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mnuArquivoActionPerformed"/>
@@ -42,6 +45,9 @@
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="itmCadastrarAluno">
               <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Inter 18pt Medium" size="12" style="0"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Cadastrar Aluno"/>
               </Properties>
               <Events>
@@ -50,6 +56,9 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="itmFichaAluno">
               <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Inter 18pt Medium" size="12" style="0"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Ficha Aluno"/>
               </Properties>
               <Events>
@@ -58,6 +67,9 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="itmGerenciarAluno">
               <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Inter 18pt Medium" size="12" style="0"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Gerenciar Aluno"/>
               </Properties>
               <Events>
@@ -66,6 +78,9 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="itmSair">
               <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Inter 18pt Medium" size="12" style="1"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Sair"/>
               </Properties>
               <Events>
@@ -77,10 +92,16 @@
         <Menu class="javax.swing.JMenu" name="mnuRelatorios">
           <Properties>
             <Property name="text" type="java.lang.String" value="Relatorios"/>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Inter 18pt Medium" size="14" style="0"/>
+            </Property>
           </Properties>
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="itmAlunos">
               <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Inter 18pt Medium" size="12" style="0"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Alunos"/>
               </Properties>
               <Events>
@@ -92,6 +113,10 @@
         <Menu class="javax.swing.JMenu" name="mnuSobre">
           <Properties>
             <Property name="text" type="java.lang.String" value="Sobre"/>
+            <Property name="toolTipText" type="java.lang.String" value=""/>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Inter 18pt Light" size="14" style="0"/>
+            </Property>
           </Properties>
         </Menu>
       </SubComponents>
@@ -99,6 +124,7 @@
   </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
+    <Property name="title" type="java.lang.String" value="Universidade Pop Rock"/>
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="menuBar" type="java.lang.String" value="jMenuBar3"/>
@@ -120,12 +146,15 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jLabel2" alignment="1" max="32767" attributes="0"/>
+          <Component id="jLabel2" alignment="0" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jLabel2" alignment="1" max="32767" attributes="0"/>
+          <Group type="102" alignment="0" attributes="0">
+              <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+          </Group>
       </Group>
     </DimensionLayout>
   </Layout>
@@ -133,7 +162,7 @@
     <Component class="javax.swing.JLabel" name="jLabel2">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\laisp_omzy4s1\OneDrive\Documentos\NetBeansProjects\SistemaUniversidade\menu.png"/>
+          <Image iconType="2" name="C:\Users\laisp_omzy4s1\OneDrive\Documentos\NetBeansProjects\SistemaUniversidade\resources\menu.png"/>
         </Property>
         <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[1920, 1080]"/>

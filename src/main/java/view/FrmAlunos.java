@@ -3,7 +3,11 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package view;
-
+import model.Aluno;
+import java.util.List;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.SwingConstants;
+import javax.swing.table.DefaultTableCellRenderer;
 /**
  *
  * @author laispaivaportela
@@ -15,6 +19,8 @@ public class FrmAlunos extends javax.swing.JFrame { //ainda trabalhando nisso!
      */
     public FrmAlunos() {
         initComponents();
+        carregaTabela();
+        
     }
 
     /**
@@ -29,20 +35,19 @@ public class FrmAlunos extends javax.swing.JFrame { //ainda trabalhando nisso!
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jTableAlunos = new javax.swing.JTable();
+        jLabel3 = new javax.swing.JLabel();
+        btnVoltar = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\laisp_omzy4s1\\OneDrive\\Documentos\\NetBeansProjects\\SistemaUniversidade\\resources\\icone.png")); // NOI18N
 
         jLabel2.setFont(new java.awt.Font("Inter 18pt Medium", 0, 49)); // NOI18N
         jLabel2.setText("Relatorio Alunos");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jTableAlunos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
                 {null, null, null, null}
             },
             new String [] {
@@ -52,18 +57,33 @@ public class FrmAlunos extends javax.swing.JFrame { //ainda trabalhando nisso!
             Class[] types = new Class [] {
                 java.lang.String.class, java.lang.Integer.class, java.lang.String.class, java.lang.String.class
             };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
 
             public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
             }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
         });
-        jScrollPane1.setViewportView(jTable1);
-        if (jTable1.getColumnModel().getColumnCount() > 0) {
-            jTable1.getColumnModel().getColumn(0).setHeaderValue("nome");
-            jTable1.getColumnModel().getColumn(1).setHeaderValue("idade");
-            jTable1.getColumnModel().getColumn(2).setHeaderValue("id");
-            jTable1.getColumnModel().getColumn(3).setHeaderValue("curso");
+        jScrollPane1.setViewportView(jTableAlunos);
+        if (jTableAlunos.getColumnModel().getColumnCount() > 0) {
+            jTableAlunos.getColumnModel().getColumn(0).setHeaderValue("nome");
+            jTableAlunos.getColumnModel().getColumn(1).setHeaderValue("idade");
+            jTableAlunos.getColumnModel().getColumn(2).setHeaderValue("id");
+            jTableAlunos.getColumnModel().getColumn(3).setHeaderValue("curso");
         }
+
+        btnVoltar.setFont(new java.awt.Font("Inter 18pt", 0, 18)); // NOI18N
+        btnVoltar.setText("voltar");
+        btnVoltar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVoltarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -71,39 +91,79 @@ public class FrmAlunos extends javax.swing.JFrame { //ainda trabalhando nisso!
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 617, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(182, 182, 182)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(139, 139, 139)
                 .addComponent(jLabel2)
-                .addContainerGap(210, Short.MAX_VALUE))
+                .addContainerGap(186, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 995, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(186, 186, 186))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 995, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(186, 186, 186))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(btnVoltar)
+                        .addGap(103, 103, 103))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(49, 49, 49)
-                        .addComponent(jLabel2)))
+                        .addComponent(jLabel2))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(38, 38, 38)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(174, Short.MAX_VALUE))
+                .addGap(41, 41, 41)
+                .addComponent(btnVoltar)
+                .addContainerGap(99, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
+        this.dispose(); // fecha a tela mas não sai do sistema
+    }//GEN-LAST:event_btnVoltarActionPerformed
+
     /**
      * @param args the command line arguments
      */
+      public void carregaTabela() {
+        //carrega a lista de objetos aluno
+        List<Aluno> alunosLista = dao.DAOAlunos.listarTodos();
+        DefaultTableModel modelo = (DefaultTableModel) jTableAlunos.getModel();
+        modelo.setRowCount(0);
+        for (Aluno a : alunosLista) {
+            modelo.addRow(new Object[]{
+                a.getNome(),
+                String.valueOf(a.getIdade()),
+                a.getMatricula(),
+                a.getCurso(),});
+        }
+
+        // Centraliza o conteúdo das células
+        DefaultTableCellRenderer centro = new DefaultTableCellRenderer();
+        centro.setHorizontalAlignment(SwingConstants.CENTER);
+
+        for (int i = 0; i < jTableAlunos.getColumnCount(); i++) {
+            jTableAlunos.getColumnModel().getColumn(i).setCellRenderer(centro);
+        }
+    }
+
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnVoltar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable jTableAlunos;
     // End of variables declaration//GEN-END:variables
 }

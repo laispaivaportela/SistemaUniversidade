@@ -9,13 +9,9 @@ package view;
  * @author laispaivaportela
  */
 
-import controller.ControleAluno;
-import controller.SistemaUniversidade;
-import principal.Principal;
 import static principal.Principal.CONTROLE_ALUNO;
-import static principal.Principal.SISTEMA_UNIVERSIDADE;
 import model.Aluno;
-import model.Pessoa;
+
 
 public class FrmFichaAluno extends javax.swing.JFrame {
 
@@ -29,6 +25,7 @@ public class FrmFichaAluno extends javax.swing.JFrame {
 
     /**
      * Creates new form FrmFichaAluno
+     * @param nome
      */
  
  //setters pros elementos gráficos
@@ -74,7 +71,7 @@ public class FrmFichaAluno extends javax.swing.JFrame {
         txtIdAlunoPesquisado = new javax.swing.JTextField();
         btnPesquisar = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\laisp_omzy4s1\\OneDrive\\Documentos\\NetBeansProjects\\SistemaUniversidade\\resources\\profile.png")); // NOI18N
 
@@ -106,7 +103,7 @@ public class FrmFichaAluno extends javax.swing.JFrame {
         txtIdade.setText("idade");
 
         txtCurso.setFont(new java.awt.Font("Inter 18pt", 0, 26)); // NOI18N
-        txtCurso.setText("Sistemas de Informação");
+        txtCurso.setText("curso");
 
         btnVoltar.setFont(new java.awt.Font("Inter 18pt", 0, 18)); // NOI18N
         btnVoltar.setText("voltar");
