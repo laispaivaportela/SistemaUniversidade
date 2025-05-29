@@ -41,21 +41,4 @@ public abstract class Pessoa {
         this.nome = nome;
     }
 
-    public
-    void lerDados () {
-        setNome (JOptionPane.showInputDialog ("Digite o nome: "));
-        setIdade (Integer.parseInt (JOptionPane.showInputDialog ("Digite a idade: ")));
-    }
-
-    @Override
-    public
-    String toString () {
-        return String.format ("Nome: %s\nIdade: %d\n" , getNome () , getIdade ());
-    }
-
-    public
-    void imprimeDados () {
-        String dados = toString ();
-        JOptionPane.showMessageDialog (null , dados);
-    }
 }

@@ -10,30 +10,33 @@ package controller;
  */
 
 //muitos imports
-import model.Aluno;
 import dao.DAOAlunos;
-import java.util.List;
+import model.Aluno;
+
 
 public class ControleAluno {
-    private final DAOAlunos daoAlunos; //define o DAO
+    public static final DAOAlunos daoAlunos = new DAOAlunos(); //define o DAO
+
     
     public ControleAluno() {
-        daoAlunos = new DAOAlunos(); //atribui o DAO (instancia)
+       // daoAlunos = new DAOAlunos(); //atribui o DAO (instancia)
+    }
+
+    public void cadastrarAluno(String nome, int idade, String curso) { //cadastra aluno a partir da entrada da classe view para cadastrar alunos
+         daoAlunos.inserirAluno(nome, idade, curso);
     }
     
-    
-    
-    
-    public boolean cadastrarAluno(Aluno aluno) { //cadastra aluno a partir da entrada da classe view para cadastrar alunos
-        return daoAlunos.inserir(aluno);
+    public void atualizarAluno(int id, String nome, int idade, String curso) { //cadastra aluno a partir da entrada da classe view para cadastrar alunos
+         daoAlunos.atualizarAluno(id, nome, idade, curso);
     }
     
-    // Métodos para consultar
-    public Aluno buscarAlunoPorMatricula(String matricula) { //procura o aluno a partir do seu id (matricula)
+    public void deletarAluno(int id) { //cadastra aluno a partir da entrada da classe view para cadastrar alunos
+         daoAlunos.deletarAluno(id);
+    }
+    
+    public Aluno buscarAlunoPorMatricula(int matricula) { //procura o aluno a partir do seu id (matricula)
         return daoAlunos.buscarPorMatricula(matricula);
     }
+   
     
-    public List<Aluno> listarTodosAlunos() { //lista todos os alunos literalmente
-        return daoAlunos.listarTodos();
-    }
 }

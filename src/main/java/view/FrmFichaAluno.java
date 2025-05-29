@@ -229,14 +229,16 @@ public class FrmFichaAluno extends javax.swing.JFrame {
 
     private void btnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarActionPerformed
         //pesquisa o aluno com o id digitado, ao encontra-lo pega (gets) os dados do objeto aluno especificado
-        String idPesquisado = txtIdAlunoPesquisado.getText();
+        String strIdPesquisado = txtIdAlunoPesquisado.getText();
+        int idPesquisado = Integer.parseInt(strIdPesquisado);
+        
         Aluno alunoPesquisado = CONTROLE_ALUNO.buscarAlunoPorMatricula(idPesquisado);
         String nome = alunoPesquisado.getNome();
         setNome(nome);
         int idade = alunoPesquisado.getIdade();
         setIdade(idade);
-        String id = alunoPesquisado.getMatricula();
-        setId(id);
+        int id = alunoPesquisado.getMatricula();
+        setId(strIdPesquisado);
         String curso = alunoPesquisado.getCurso();
         setCurso(curso);
         

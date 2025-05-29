@@ -3,11 +3,13 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package view;
-import model.Aluno;
-import java.util.List;
+import static controller.ControleAluno.daoAlunos;
+import java.sql.SQLException;
+import dao.DAOAlunos;
+import java.sql.ResultSet;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.SwingConstants;
-import javax.swing.table.DefaultTableCellRenderer;
+
+
 /**
  *
  * @author laispaivaportela
@@ -134,27 +136,18 @@ public class FrmAlunos extends javax.swing.JFrame { //ainda trabalhando nisso!
     /**
      * @param args the command line arguments
      */
-      public void carregaTabela() {
+   public void carregaTabela() {
         //carrega a lista de objetos aluno
-        List<Aluno> alunosLista = dao.DAOAlunos.listarTodos();
-        DefaultTableModel modelo = (DefaultTableModel) jTableAlunos.getModel();
-        modelo.setRowCount(0);
-        for (Aluno a : alunosLista) {
-            modelo.addRow(new Object[]{
-                a.getNome(),
-                String.valueOf(a.getIdade()),
-                a.getMatricula(),
-                a.getCurso(),});
-        }
-
-        // Centraliza o conteúdo das células
-        DefaultTableCellRenderer centro = new DefaultTableCellRenderer();
-        centro.setHorizontalAlignment(SwingConstants.CENTER);
-
-        for (int i = 0; i < jTableAlunos.getColumnCount(); i++) {
-            jTableAlunos.getColumnModel().getColumn(i).setCellRenderer(centro);
-        }
+    ResultSet rs = DAOAlunos.listarAlunos();
+    try {
+        DefaultTableModel model = daoAlunos.montarTabela(rs);
+        jTableAlunos.setModel(model);
+    } catch (SQLException e) {
+        e.printStackTrace();
     }
+}
+
+
 
     
 

@@ -11,12 +11,12 @@ import javax.swing.*;
 
 public class Aluno extends Pessoa {
     private  String curso;
-    private  String matricula;
+    private  int matricula;
 
     public Aluno() {
     }
 
-    public Aluno(String nome, int idade, String curso, String id) {
+    public Aluno(String nome, int idade, String curso, int id) {
         this.nome = nome;
         this.idade = idade;
         this.curso = curso;
@@ -25,12 +25,12 @@ public class Aluno extends Pessoa {
     }
 
     public
-    String getMatricula () {
+    int getMatricula () {
         return matricula;
     }
 
     public
-    void setMatricula (String matricula) {
+    void setMatricula (int matricula) {
         this.matricula = matricula;
     }
 
@@ -43,21 +43,5 @@ public class Aluno extends Pessoa {
         return curso;
     }
 
-    @Override
-    public void lerDados() {
-        super.lerDados();
-        setCurso (JOptionPane.showInputDialog("Digite o curso: "));
-        setMatricula (JOptionPane.showInputDialog ("Digite  o id")); //depois criar um metodo pra criar id aleatorio
-    }
-
-    @Override
-    public String toString() {
-        return String.format("Nome: %s\nIdade: %d\nCurso: %s\n", getNome (), super.getIdade(), getCurso());
-    }
-
-    @Override
-    public void imprimeDados() {
-        String dados = toString();
-        JOptionPane.showMessageDialog(null, dados);
-    }
+  
 }

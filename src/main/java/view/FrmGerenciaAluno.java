@@ -29,8 +29,8 @@ public class FrmGerenciaAluno extends javax.swing.JFrame {
         txtNome.setText(nome);
     }
 
-    public void setId(String id) {
-        txtId.setText(id);
+    public void setId(int id) {
+        txtId.setText(String.valueOf(id));
     }
 
     public void setIdade(int idade) {
@@ -50,6 +50,7 @@ public class FrmGerenciaAluno extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         txtNome = new javax.swing.JTextField();
@@ -61,12 +62,13 @@ public class FrmGerenciaAluno extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         txtIdProcurado = new javax.swing.JTextField();
         btnPesquisar = new javax.swing.JButton();
+        btnExcluirAluno = new javax.swing.JButton();
+
+        jButton1.setText("jButton1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\laisp_omzy4s1\\OneDrive\\Documentos\\NetBeansProjects\\SistemaUniversidade\\resources\\icone.png")); // NOI18N
-
-        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\laisp_omzy4s1\\OneDrive\\Documentos\\NetBeansProjects\\SistemaUniversidade\\resources\\profile.png")); // NOI18N
 
         txtNome.setFont(new java.awt.Font("Inter 18pt Light", 0, 18)); // NOI18N
         txtNome.setText("nome");
@@ -84,6 +86,7 @@ public class FrmGerenciaAluno extends javax.swing.JFrame {
             }
         });
 
+        txtId.setEditable(false);
         txtId.setFont(new java.awt.Font("Inter 18pt Light", 0, 18)); // NOI18N
         txtId.setText("id");
         txtId.addActionListener(new java.awt.event.ActionListener() {
@@ -125,6 +128,13 @@ public class FrmGerenciaAluno extends javax.swing.JFrame {
             }
         });
 
+        btnExcluirAluno.setText("Excluir Aluno");
+        btnExcluirAluno.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExcluirAlunoActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -150,7 +160,8 @@ public class FrmGerenciaAluno extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 199, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btnVoltar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnSalvarAlterações, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnSalvarAlterações, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnExcluirAluno, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(73, 73, 73))
         );
         layout.setVerticalGroup(
@@ -168,16 +179,19 @@ public class FrmGerenciaAluno extends javax.swing.JFrame {
                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 376, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(84, 84, 84)
-                        .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(43, 43, 43)
-                        .addComponent(txtIdade, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(29, 29, 29)
-                        .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(29, 29, 29)
-                        .addComponent(txtCurso, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(9, 9, 9)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(btnExcluirAluno, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(43, 43, 43)
+                                .addComponent(txtIdade, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(29, 29, 29)
+                                .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(29, 29, 29)
+                                .addComponent(txtCurso, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addGap(22, 22, 22)
                 .addComponent(btnSalvarAlterações, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
                 .addComponent(btnVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(39, 39, 39))
         );
@@ -207,20 +221,21 @@ public class FrmGerenciaAluno extends javax.swing.JFrame {
 
     private void btnSalvarAlteraçõesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarAlteraçõesActionPerformed
         //edita as informações do objeto aluno com o id selecionado
-        String idPesquisado = txtIdProcurado.getText();
+        String strIdPesquisado = txtIdProcurado.getText();
+        int idPesquisado = Integer.parseInt(strIdPesquisado);
         Aluno alunoPesquisado = CONTROLE_ALUNO.buscarAlunoPorMatricula(idPesquisado);
         
         String nome = txtNome.getText();
         String StrIdade = txtIdade.getText();
         int idade = Integer.parseInt(StrIdade);
         String curso = txtCurso.getText();
-        String id = txtId.getText();
+        int id = idPesquisado;
         
-        
+        CONTROLE_ALUNO.atualizarAluno(id, nome, idade, curso);
         alunoPesquisado.setNome(nome);
         alunoPesquisado.setIdade(idade);
-        alunoPesquisado.setMatricula(id);
         alunoPesquisado.setCurso(curso);
+        
         
         
 
@@ -229,26 +244,40 @@ public class FrmGerenciaAluno extends javax.swing.JFrame {
 
     private void btnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarActionPerformed
         //edita as informações dos elementos gráficos a partir dos dados do aluno com o id selecionado
-        String idPesquisado = txtIdProcurado.getText();
+        String strIdPesquisado = txtIdProcurado.getText();
+        int idPesquisado = Integer.parseInt(strIdPesquisado);
         Aluno alunoPesquisado = CONTROLE_ALUNO.buscarAlunoPorMatricula(idPesquisado);
         String nome = alunoPesquisado.getNome();
         setNome(nome);
         int idade = alunoPesquisado.getIdade();
         setIdade(idade);
-        String id = alunoPesquisado.getMatricula();
-        setId(id);
         String curso = alunoPesquisado.getCurso();
         setCurso(curso);
+        int id = alunoPesquisado.getMatricula();
+        setId(id);
     }//GEN-LAST:event_btnPesquisarActionPerformed
+
+    private void btnExcluirAlunoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirAlunoActionPerformed
+        //exclui um aluno da base de dados quando necessário
+        String strIdPesquisado = txtIdProcurado.getText();
+        int idPesquisado = Integer.parseInt(strIdPesquisado);
+        CONTROLE_ALUNO.deletarAluno(idPesquisado);
+        setNome("");
+        setIdade(0);
+        setCurso("");
+        setId(0);
+    }//GEN-LAST:event_btnExcluirAlunoActionPerformed
 
     /**
      * @param args the command line arguments
      */
    
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnExcluirAluno;
     private javax.swing.JButton btnPesquisar;
     private javax.swing.JButton btnSalvarAlterações;
     private javax.swing.JButton btnVoltar;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
